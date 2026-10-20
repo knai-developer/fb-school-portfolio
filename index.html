@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NK | School Content Creator</title>
+    <meta name="description" content="NK - educational content creator for private schools. Monthly tests, exam papers, worksheets, syllabus and result reports for Classes KG-7, delivered on time.">
+    <meta name="theme-color" content="#0f0c29">
+    <link rel="canonical" href="https://nidakhurramalvi.vercel.app/">
+
+    <!-- Open Graph (WhatsApp / Facebook link preview) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NK">
+    <meta property="og:title" content="NK | School Content Creator">
+    <meta property="og:description" content="Monthly tests, exam papers, worksheets, syllabus and result reports for private schools - curriculum aligned, delivered on time.">
+    <meta property="og:image" content="https://nidakhurramalvi.vercel.app/logo.webp">
+    <meta property="og:image:alt" content="NK - School Content Creator">
+    <meta property="og:url" content="https://nidakhurramalvi.vercel.app/">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="NK | School Content Creator">
+    <meta name="twitter:description" content="Monthly tests, exam papers, worksheets, syllabus and result reports for private schools - curriculum aligned, delivered on time.">
+    <meta name="twitter:image" content="https://nidakhurramalvi.vercel.app/logo.webp">
+
+    <link rel="icon" type="image/webp" href="logo.webp">
+    <link rel="apple-touch-icon" href="logo.webp">
+
+    <!-- Structured data (Google ke liye) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "NK - School Content Creator",
+      "url": "https://nidakhurramalvi.vercel.app/",
+      "image": "https://nidakhurramalvi.vercel.app/logo.webp",
+      "description": "Monthly tests, exam papers, worksheets, syllabus, result reports and vacation homework for private schools.",
+      "email": "arshmanedu123@gmail.com",
+      "serviceType": ["Monthly tests", "Exam papers", "Worksheets", "Syllabus", "Result reports", "Vacation homework", "School social media posts"]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0f0c29;
+            --bg-soft: #15132b;
+            --ink: #f5f3ff;
+            --muted: #b4b2c8;
+            --violet: #a78bfa;
+            --violet-soft: #c4b5fd;
+            --violet-strong: #7c3aed;
+            --line: rgba(255,255,255,0.10);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
+        section[id] { scroll-margin-top: 72px; }
+        img { max-width: 100%; }
+        :focus-visible { outline: 2px solid var(--violet-soft); outline-offset: 3px; border-radius: 6px; }
+
+        .gradient-bg { background: linear-gradient(135deg, #0f0c29, #302b63 60%, #24243e); }
+        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--line); }
+        .muted { color: var(--muted); }
+
+        /* Section headings */
+        .eyebrow { display: block; text-align: center; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--violet); font-weight: 600; margin-bottom: .6rem; }
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; text-align: center; letter-spacing: -0.01em;
+            background: linear-gradient(to right, #ddd6fe, #818cf8);
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: .9rem;
+        }
+        .section-sub { text-align: center; color: var(--muted); max-width: 42rem; margin: 0 auto 2.75rem; }
+
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .8rem 1.6rem; border-radius: 999px; font-weight: 600; font-size: .95rem; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; text-decoration: none; }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-primary { background: var(--violet-strong); color: #fff; box-shadow: 0 8px 24px rgba(124,58,237,.35); }
+        .btn-primary:hover { background: #8b5cf6; box-shadow: 0 10px 28px rgba(139,92,246,.5); }
+        .btn-ghost { border: 1px solid rgba(196,181,253,.55); color: var(--violet-soft); }
+        .btn-ghost:hover { background: rgba(167,139,250,.12); }
+
+        /* Navbar */
+        .nav-link { position: relative; padding: .25rem 0; color: #d1d0e0; transition: color .2s; }
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--violet); transition: width .3s ease; }
+        .nav-link:hover, .nav-link.active { color: #fff; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        /* Hero */
+        .chip { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .85rem; border-radius: 999px; font-size: .8rem; color: var(--violet-soft); background: rgba(167,139,250,.1); border: 1px solid rgba(167,139,250,.28); }
+        .hero-slider { position: relative; width: 100%; max-width: 420px; margin: 0 auto; }
+        .hero-frame { position: relative; border-radius: 20px; padding: 14px; background: rgba(255,255,255,.05); border: 1px solid rgba(167,139,250,.3); box-shadow: 0 30px 70px rgba(0,0,0,.5), 0 0 60px rgba(124,58,237,.18); }
+        .hero-stage { display: grid; }
+        .hero-slide { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .5s ease, visibility .5s; background: none; border: 0; cursor: zoom-in; color: inherit; text-align: center; }
+        .hero-slide.active { opacity: 1; visibility: visible; }
+        .hero-slide img { width: 100%; height: 340px; object-fit: contain; border-radius: 12px; background: rgba(0,0,0,.25); }
+        .hero-caption { margin-top: .75rem; font-size: .85rem; color: var(--muted); }
+        .hero-arrow { position: absolute; top: 40%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; line-height: 1; color: #fff; background: rgba(15,12,41,.75); border: 1px solid rgba(255,255,255,.2); cursor: pointer; transition: background .25s, border-color .25s; z-index: 5; }
+        .hero-arrow:hover { background: rgba(124,58,237,.7); border-color: var(--violet); }
+        .hero-arrow.prev { left: 24px; }
+        .hero-arrow.next { right: 24px; }
+        .hero-count { display: block; margin-top: .6rem; text-align: center; font-size: .78rem; letter-spacing: .12em; color: var(--violet-soft); font-variant-numeric: tabular-nums; }
+
+        /* Stats */
+        .stat { padding: 1.1rem; border-radius: 14px; text-align: center; }
+        .stat b { display: block; color: var(--violet); font-size: 1.15rem; font-weight: 700; }
+        .stat span { display: block; color: var(--muted); font-size: .85rem; margin-top: .25rem; }
+
+        /* Services */
+        .service { border-radius: 18px; padding: 1.6rem; transition: transform .3s ease, border-color .3s ease, background .3s ease; }
+        .service:hover { transform: translateY(-4px); border-color: rgba(167,139,250,.45); background: rgba(255,255,255,.07); }
+        .service .ico { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; background: rgba(167,139,250,.14); border: 1px solid rgba(167,139,250,.3); margin-bottom: 1rem; }
+
+        /* Pricing */
+        .price-card { position: relative; border-radius: 20px; padding: 1.9rem; transition: transform .3s ease, border-color .3s ease; }
+        .price-card:hover { transform: translateY(-4px); border-color: rgba(167,139,250,.45); }
+        .price-card .ico { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; background: rgba(167,139,250,.14); border: 1px solid rgba(167,139,250,.3); margin-bottom: 1rem; }
+        .price-featured { border-color: rgba(167,139,250,.55); box-shadow: 0 0 40px rgba(124,58,237,.22); }
+        .price-tag { position: absolute; top: 1rem; right: 1rem; font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .2rem .6rem; border-radius: 999px; color: #fff; background: rgba(124,58,237,.9); }
+        .price-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.1rem; }
+        .price-from { width: 100%; font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+        .price-amt { font-size: 2.4rem; font-weight: 800; color: #fff; line-height: 1; }
+        .price-unit { color: var(--violet-soft); font-weight: 500; }
+        .price-list { list-style: none; border-top: 1px solid var(--line); padding-top: 1rem; display: grid; gap: .5rem; font-size: .9rem; color: #d3d1e3; }
+        .price-list li::before { content: '\2713'; color: var(--violet); font-weight: 700; margin-right: .55rem; }
+
+        .offer-card { position: relative; border-radius: 18px; padding: 1.5rem 1.6rem 1.5rem; text-align: center; border-color: rgba(37,211,102,.4); background: linear-gradient(135deg, rgba(37,211,102,.10), rgba(124,58,237,.12)); }
+        .offer-badge { display: inline-block; margin-bottom: .6rem; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .2rem .65rem; border-radius: 999px; color: #052e16; background: #25D366; }
+
+        /* Process */
+        .step-no { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; background: linear-gradient(135deg, #8b5cf6, #6366f1); box-shadow: 0 6px 18px rgba(124,58,237,.4); margin-bottom: .9rem; }
+
+        /* Project tabs + cards */
+        .tabs { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+        .tab-btn { padding: .55rem 1.1rem; border-radius: 999px; font-size: .88rem; font-weight: 500; color: #b9b7cc; background: rgba(255,255,255,.05); border: 1px solid var(--line); cursor: pointer; transition: all .25s ease; }
+        .tab-btn:hover { background: rgba(167,139,250,.15); border-color: rgba(167,139,250,.35); color: #fff; }
+        .tab-btn[aria-selected="true"] { background: rgba(124,58,237,.35); border-color: var(--violet); color: #fff; }
+        .tab-btn .n { margin-left: .35rem; font-size: .72rem; opacity: .7; }
+
+        .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+        .proj-card { display: block; width: 100%; text-align: left; color: inherit; cursor: pointer; border-radius: 14px; overflow: hidden; transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; font: inherit; }
+        .proj-card:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(0,0,0,.35); border-color: rgba(167,139,250,.4); }
+        .proj-card .thumb { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: rgba(0,0,0,.25); }
+        .proj-card img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s ease; }
+        .proj-card:hover img { transform: scale(1.05); }
+        .proj-card .cap { display: block; padding: .75rem .9rem; font-size: .88rem; color: #d6d4e6; }
+        .badge { position: absolute; top: .55rem; right: .55rem; padding: .15rem .5rem; border-radius: 6px; font-size: .68rem; font-weight: 700; letter-spacing: .06em; color: #fff; background: rgba(124,58,237,.9); }
+        .group-title { display: flex; align-items: center; gap: .55rem; font-size: 1.05rem; font-weight: 600; color: #c7d2fe; margin: 2rem 0 1rem; }
+        .group-title::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #818cf8; }
+        .cat-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+        .cat-head h3 { font-size: 1.45rem; font-weight: 700; color: var(--violet-soft); }
+        .link-btn { background: none; border: 0; color: var(--violet-soft); font-weight: 600; font-size: .9rem; cursor: pointer; white-space: nowrap; }
+        .link-btn:hover { color: #fff; }
+
+        .post { border-radius: 18px; overflow: hidden; }
+        .post-img { display: block; width: 100%; border: 0; padding: 0; cursor: pointer; background: rgba(0,0,0,.3); }
+        .post-img img { width: 100%; height: 280px; object-fit: contain; display: block; }
+        .sample-tag { font-size: .62rem; text-transform: uppercase; letter-spacing: .08em; background: rgba(124,58,237,.25); color: var(--violet-soft); border: 1px solid rgba(167,139,250,.35); border-radius: 5px; padding: .1rem .4rem; font-weight: 600; }
+
+        .syl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.4rem; }
+        .syl-grid h5 { color: #c7d2fe; font-weight: 600; margin-bottom: .45rem; font-size: .95rem; }
+        .syl-grid ul { list-style: disc; padding-left: 1.1rem; color: var(--muted); font-size: .88rem; line-height: 1.7; }
+
+        /* Timeline */
+        .timeline { position: relative; max-width: 46rem; margin: 0 auto; padding-left: 2rem; border-left: 2px solid rgba(139,92,246,.3); }
+        .timeline-item { position: relative; margin-bottom: 1.75rem; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot { position: absolute; left: calc(-2rem - 9px); top: 1.6rem; width: 16px; height: 16px; border-radius: 50%; background: var(--violet); border: 3px solid #1e1b4b; }
+        .timeline ul { list-style: disc; padding-left: 1.1rem; margin-top: .8rem; color: #d3d1e3; font-size: .9rem; line-height: 1.75; }
+
+        /* Skills */
+        .skill-tag { padding: .45rem 1.05rem; border-radius: 999px; background: rgba(167,139,250,.14); color: var(--violet-soft); border: 1px solid rgba(167,139,250,.3); font-size: .85rem; font-weight: 500; transition: background .25s, transform .25s; }
+        .skill-tag:hover { background: rgba(167,139,250,.28); transform: translateY(-2px); }
+
+        /* Contact */
+        .contact-card { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.25rem; border-radius: 16px; text-decoration: none; color: inherit; transition: transform .25s, border-color .25s; }
+        .contact-card:hover { transform: translateY(-3px); border-color: rgba(167,139,250,.45); }
+        .contact-card .ico { flex: none; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: rgba(167,139,250,.14); font-size: 1.2rem; }
+
+        /* Floating Email */
+        .email-float { position: fixed; bottom: calc(20px + env(safe-area-inset-bottom)); right: 20px; z-index: 40; width: 56px; height: 56px; border-radius: 50%; background: #7c3aed; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(124,58,237,.45); transition: transform .25s, box-shadow .25s; }
+        .email-float:hover { transform: scale(1.08); box-shadow: 0 8px 28px rgba(124,58,237,.6); }
+
+        /* Modal */
+        .modal { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; padding: 1rem; background: rgba(5,4,18,.88); backdrop-filter: blur(5px); }
+        .modal[hidden] { display: none; }
+        .modal-inner { position: relative; width: min(960px, 100%); max-height: 100%; display: flex; flex-direction: column; align-items: center; }
+        .modal-img { max-width: 100%; max-height: calc(100vh - 150px); object-fit: contain; border-radius: 12px; background: rgba(255,255,255,.04); }
+        .modal-foot { display: flex; gap: 1rem; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: .9rem; color: #fff; font-size: .95rem; text-align: center; }
+        .modal-btn { position: absolute; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; line-height: 1; color: #fff; background: rgba(15,12,41,.8); border: 1px solid rgba(255,255,255,.25); cursor: pointer; transition: background .2s; }
+        .modal-btn:hover { background: rgba(124,58,237,.8); }
+        .modal-close { top: -8px; right: -4px; z-index: 2; }
+        .modal-prev { left: 8px; top: 45%; }
+        .modal-next { right: 8px; top: 45%; }
+
+        /* Reveal animation (only when JS is running) */
+        .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+        .js .reveal.in { opacity: 1; transform: none; }
+
+        @media (max-width: 767px) {
+            .hero-slide img { height: 300px; }
+            .hero-arrow.prev { left: 22px; }
+            .hero-arrow.next { right: 22px; }
+            .timeline { padding-left: 1.5rem; }
+            .timeline-dot { left: calc(-1.5rem - 9px); }
+            .modal-btn { width: 40px; height: 40px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .js .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[70] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
+
+    <!-- Navbar -->
+    <header class="fixed top-0 w-full z-50 glass">
+        <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between" aria-label="Main navigation">
+            <a href="#home" class="flex items-center gap-2.5" aria-label="NK - Home">
+                <img src="logo.webp" alt="" class="h-8 w-auto">
+                <span class="hidden sm:inline font-semibold text-sm tracking-wide">NK</span>
+            </a>
+            <div class="hidden md:flex items-center gap-7 text-sm font-medium" id="desktopNav">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <!-- <a href="#testimonials" class="nav-link">Reviews</a> -->
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#contact" class="btn btn-primary !py-2 !px-4 !text-sm">Email</a>
+            </div>
+            <button id="menuBtn" class="md:hidden text-gray-200 text-2xl w-10 h-10 flex items-center justify-center" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">&#9776;</button>
+        </nav>
+        <div id="mobileMenu" class="hidden md:hidden px-4 pb-5 flex flex-col gap-3.5 text-sm border-t border-white/10 pt-4">
+            <a href="#about" class="nav-link w-fit">About</a>
+            <a href="#services" class="nav-link w-fit">Services</a>
+            <a href="#pricing" class="nav-link w-fit">Pricing</a>
+            <a href="#projects" class="nav-link w-fit">Projects</a>
+            <!-- <a href="#testimonials" class="nav-link w-fit">Reviews</a> -->
+            <a href="#experience" class="nav-link w-fit">Experience</a>
+            <a href="#skills" class="nav-link w-fit">Skills</a>
+            <a href="#contact" class="nav-link w-fit">Contact</a>
+            <a href="#contact" class="btn btn-primary !py-2.5 mt-1">Email Me</a>
+        </div>
+    </header>
+
+    <main id="main">
+
+    <!-- Banner (compact) -->
+    <section class="gradient-bg px-4 pt-20 md:pt-24" aria-label="Featured banner">
+        <div class="max-w-3xl mx-auto">
+            <div class="rounded-2xl overflow-hidden border border-white/10" style="box-shadow:0 20px 50px rgba(0,0,0,.5), 0 0 40px rgba(124,58,237,.18);">
+                <img src="banner.webp" alt="NK — Private Schools Content Creator" class="block w-full h-auto" loading="eager" fetchpriority="high" decoding="async">
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero -->
+    <section id="home" class="gradient-bg px-4 pt-10 md:pt-12 pb-16 md:pb-24 min-h-screen flex items-center">
+        <div class="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left">
+                <span class="chip mb-6">&#9733; Online Educational Content Creator</span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-3 text-transparent bg-clip-text bg-gradient-to-r from-white via-violet-200 to-indigo-300">NK</h1>
+                <p class="text-xl md:text-2xl text-violet-300 font-semibold mb-5">Private Schools Content Creator</p>
+                <p class="text-gray-300 max-w-xl mx-auto md:mx-0 mb-3 text-base md:text-lg leading-relaxed">Crafting <strong class="text-violet-200 font-semibold">monthly tests</strong>, <strong class="text-violet-200 font-semibold">worksheets</strong>, <strong class="text-violet-200 font-semibold">syllabus</strong> &amp; <strong class="text-violet-200 font-semibold">result reports</strong> that help private schools teach smarter.</p>
+                <p class="text-violet-200/80 max-w-xl mx-auto md:mx-0 mb-7 italic">Private schools ke liye monthly tests, papers, worksheets aur result reports &mdash; waqt par, bilkul tayyar.</p>
+                <div class="flex gap-3 justify-center md:justify-start flex-wrap mb-7">
+                    <a href="mailto:arshmanedu123@gmail.com?subject=Content%20Quote%20Request&amp;body=Assalam-o-Alaikum%2C%20mujhe%20school%20ke%20liye%20content%2Fquote%20chahiye.%20Services%20ki%20maloomat%20bhej%20dein." class="btn btn-primary">Get a Quote by Email</a>
+                    <a href="#projects" class="btn btn-ghost">View My Work</a>
+                </div>
+                <div class="flex gap-2.5 flex-wrap justify-center md:justify-start">
+                    <span class="chip">Classes KG&ndash;7</span>
+                    <span class="chip">Word / PDF ready</span>
+                    <span class="chip">Curriculum aligned</span>
+                </div>
+            </div>
+
+            <div class="hero-slider" id="heroSlider" role="region" aria-roledescription="carousel" aria-label="Sample work">
+                <div class="hero-frame">
+                    <div class="hero-stage" id="heroSlides"></div>
+                    <button class="hero-arrow prev" id="heroPrev" aria-label="Previous sample">&#8249;</button>
+                    <button class="hero-arrow next" id="heroNext" aria-label="Next sample">&#8250;</button>
+                </div>
+                <span class="hero-count" id="heroCount" aria-live="off"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 px-4" style="background:var(--bg-soft)">
+        <div class="max-w-5xl mx-auto">
+            <span class="eyebrow">About</span>
+            <h2 class="section-title">About Me</h2>
+            <div class="max-w-4xl mx-auto glass rounded-2xl p-6 sm:p-10 reveal">
+                <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-5">
+                    I am a dedicated educational content creator specializing in designing comprehensive study materials for private schools,
+                    including exam papers, monthly tests, worksheets, syllabus, and result reports that align with curriculum standards.
+                </p>
+                <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-5">
+                    My work also covers vacation homework booklets, pre-primary learning activities, and creative
+                    social media posts for school pages. I am upskilling at the Governor Sindh Initiative for
+                    Artificial Intelligence, Web 3.0 &amp; Metaverse (2024 - Present), and I use modern AI tools to
+                    deliver school content faster and more accurately.
+                </p>
+                <p class="text-violet-200/80 leading-relaxed italic">
+                    Har document school ki zaroorat ke mutabiq tarteeb diya jata hai &mdash; saaf, accurate aur waqt par.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-8">
+                    <div class="stat glass"><b>KG &ndash; Matric</b><span>Classes covered</span></div>
+                    <div class="stat glass"><b>Double-checked</b><span>Before every delivery</span></div>
+                    <div class="stat glass"><b>Word &amp; PDF</b><span>Print-ready files</span></div>
+                    <div class="stat glass"><b>Curriculum Aligned</b><span>All subjects</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 px-4 gradient-bg">
+        <div class="max-w-6xl mx-auto">
+            <span class="eyebrow">What I Offer</span>
+            <h2 class="section-title">Services</h2>
+            <p class="section-sub">Ready-to-use content packages crafted for private schools &mdash; curriculum aligned and deadline friendly.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <article class="service glass reveal">
+                    <div class="ico" aria-hidden="true">&#128221;</div>
+                    <h3 class="text-lg font-bold text-violet-200 mb-2">Monthly Test Pack</h3>
+                    <p class="muted text-sm leading-relaxed">Complete monthly tests for every subject, with answer keys and a clean, print-ready layout.</p>
+                </article>
+                <article class="service glass reveal">
+                    <div class="ico" aria-hidden="true">&#128196;</div>
+                    <h3 class="text-lg font-bold text-violet-200 mb-2">Term Paper Pack</h3>
+                    <p class="muted text-sm leading-relaxed">Mid-term and final exam papers per subject, aligned with your school's syllabus.</p>
+                </article>
+                <article class="service glass reveal">
+                    <div class="ico" aria-hidden="true">&#128202;</div>
+                    <h3 class="text-lg font-bold text-violet-200 mb-2">Result Report Setup</h3>
+                    <p class="muted text-sm leading-relaxed">Professional result reports, mark sheets and progress summaries, ready to hand out.</p>
+                </article>
+                <article class="service glass reveal">
+                    <div class="ico" aria-hidden="true">&#128218;</div>
+                    <h3 class="text-lg font-bold text-violet-200 mb-2">Worksheet &amp; Syllabus</h3>
+                    <p class="muted text-sm leading-relaxed">Topic-wise worksheets and a clear, well-organised syllabus for each class.</p>
+                </article>
+                <article class="service glass reveal">
+                    <div class="ico" aria-hidden="true">&#127796;</div>
+                    <h3 class="text-lg font-bold text-violet-200 mb-2">Vacation Homework</h3>
+                    <p class="muted text-sm leading-relaxed">Engaging holiday homework booklets that keep students learning during breaks.</p>
+                </article>
+                <article class="service glass reveal">
+                    <div class="ico" aria-hidden="true">&#128241;</div>
+                    <h3 class="text-lg font-bold text-violet-200 mb-2">Social Media Posts</h3>
+                    <p class="muted text-sm leading-relaxed">Eye-catching announcements and posts for your school's social media pages.</p>
+                </article>
+            </div>
+            <p class="text-center muted mt-8">Custom packages available &mdash; apni zaroorat bata dein, main usi hisaab se tayyar kar dungi.</p>
+            <div class="flex gap-3 justify-center flex-wrap mt-6">
+                <a href="mailto:arshmanedu123@gmail.com?subject=Content%20Quote%20Request&amp;body=Assalam-o-Alaikum%2C%20mujhe%20school%20ke%20liye%20content%2Fquote%20chahiye.%20Services%20ki%20maloomat%20bhej%20dein." class="btn btn-primary">Request a Quote by Email</a>
+                <a href="1-100.pdf" download="Free-Sample-Papers.pdf" class="btn btn-ghost">Download Free Sample (1&ndash;100)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 px-4 gradient-bg">
+        <div class="max-w-5xl mx-auto">
+            <span class="eyebrow">Pricing</span>
+            <h2 class="section-title">Simple, Affordable Rates</h2>
+            <p class="section-sub">Per page rates, print-ready Word / PDF files. Final quote class, subject aur deadline ke hisaab se tay hota hai.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <article class="price-card glass reveal">
+                    <div class="ico" aria-hidden="true">&#9000;</div>
+                    <h3 class="text-xl font-bold text-violet-200 mb-1">Typing Work</h3>
+                    <p class="muted text-sm mb-5">Tests, papers, worksheets, syllabus &mdash; text, tables and clean formatting.</p>
+                    <p class="price-line"><span class="price-from">Starting from</span><span class="price-amt">Rs. 150</span><span class="price-unit">/ page</span></p>
+                    <ul class="price-list">
+                        <li>Monthly tests &amp; exam papers</li>
+                        <li>Syllabus &amp; result sheets</li>
+                        <li>Word / PDF, print-ready</li>
+                    </ul>
+                </article>
+                <article class="price-card price-featured glass reveal">
+                    <span class="price-tag">Most requested</span>
+                    <div class="ico" aria-hidden="true">&#127912;</div>
+                    <h3 class="text-xl font-bold text-violet-200 mb-1">Pictorial Work</h3>
+                    <p class="muted text-sm mb-5">Picture-based worksheets and activities with images, shapes and creative layout.</p>
+                    <p class="price-line"><span class="price-from">Starting from</span><span class="price-amt">Rs. 250</span><span class="price-unit">/ page</span></p>
+                    <ul class="price-list">
+                        <li>Pre-primary &amp; KG activities</li>
+                        <li>Picture worksheets &amp; designs</li>
+                        <li>Word / PDF, print-ready</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="offer-card glass reveal max-w-3xl mx-auto mt-6">
+                <span class="offer-badge">Package Offer</span>
+                <h3 class="text-lg sm:text-xl font-bold text-violet-200 mb-1">Up to 15% OFF on Packages</h3>
+                <p class="muted text-sm leading-relaxed">Poori class ka Monthly Test Pack, Term Paper Pack ya Vacation Homework Booklet ek saath karwayen aur discount payen. Monthly (regular) kaam par aur behtar rate.</p>
+            </div>
+            <p class="text-center muted text-sm mt-6 max-w-2xl mx-auto">Urdu typing, image se dobara banana ya urgent delivery par rate thora mukhtalif ho sakta hai.</p>
+            <div class="flex justify-center mt-6">
+                <a href="mailto:arshmanedu123@gmail.com?subject=Content%20Quote%20Request&amp;body=Assalam-o-Alaikum%2C%20mujhe%20school%20ke%20liye%20content%2Fquote%20chahiye.%20Services%20ki%20maloomat%20bhej%20dein." class="btn btn-primary">Get Exact Quote by Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="process" class="py-20 px-4" style="background:var(--bg-soft)">
+        <div class="max-w-5xl mx-auto">
+            <span class="eyebrow">Simple Process</span>
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-sub">Koi complicated process nahi &mdash; chaar aasan qadam.</p>
+            <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 list-none">
+                <li class="glass rounded-2xl p-6 reveal"><div class="step-no">1</div><h3 class="font-bold mb-1.5">Share your need</h3><p class="muted text-sm leading-relaxed">Email par class, subject aur syllabus bhej dein.</p></li>
+                <li class="glass rounded-2xl p-6 reveal"><div class="step-no">2</div><h3 class="font-bold mb-1.5">Draft prepared</h3><p class="muted text-sm leading-relaxed">Aap ke curriculum ke mutabiq content tayyar hota hai.</p></li>
+                <li class="glass rounded-2xl p-6 reveal"><div class="step-no">3</div><h3 class="font-bold mb-1.5">Review &amp; changes</h3><p class="muted text-sm leading-relaxed">Aap ki feedback ke baad zaroori tabdeeliyan ki jati hain.</p></li>
+                <li class="glass rounded-2xl p-6 reveal"><div class="step-no">4</div><h3 class="font-bold mb-1.5">Final delivery</h3><p class="muted text-sm leading-relaxed">Print-ready Word / PDF file waqt par aap tak.</p></li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 px-4 gradient-bg">
+        <div class="max-w-6xl mx-auto">
+            <span class="eyebrow">Portfolio</span>
+            <h2 class="section-title">Online School Projects</h2>
+            <p class="section-sub">Educational content developed for private schools. Kisi bhi sample par click karke bara dekhein.</p>
+
+            <div class="tabs" role="tablist" aria-label="Project categories" id="projectTabs"></div>
+            <div id="projectPanel" role="tabpanel" tabindex="0" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials section hidden for now
+    <section id="testimonials" class="py-20 px-4" style="background:var(--bg-soft)">
+        <div class="max-w-5xl mx-auto">
+            <span class="eyebrow">Testimonials</span>
+            <h2 class="section-title">What Schools Say</h2>
+            <div class="grid grid-cols-1 gap-6 mt-10 max-w-2xl mx-auto">
+                <figure class="glass rounded-2xl p-7 reveal">
+                    <div class="text-violet-400 text-4xl leading-none mb-3" aria-hidden="true">&#10077;</div>
+                    <blockquote class="text-gray-300 leading-relaxed">Working with Nida has been effortless. She understands the curriculum, keeps our syllabus well organised, and her worksheets are loved by both teachers and students. I highly recommend her for any school content needs.</blockquote>
+                    <figcaption class="mt-6 flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-full bg-violet-500/20 border border-violet-400/40 flex items-center justify-center text-violet-300 font-bold" aria-hidden="true">SA</div>
+                        <div><p class="font-semibold text-white">Shahid Ansari</p><p class="text-sm muted">Administrator &middot; M.galaxy School</p></div>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Experience -->
+    <section id="experience" class="py-20 px-4 gradient-bg">
+        <div class="max-w-5xl mx-auto">
+            <span class="eyebrow">Career</span>
+            <h2 class="section-title">Work History</h2>
+            <div class="timeline mt-12">
+
+                <article class="timeline-item glass rounded-2xl p-6 reveal">
+                    <span class="timeline-dot"></span>
+                    <span class="text-violet-300 text-sm font-semibold">2024 - Present</span>
+                    <h3 class="text-xl font-bold mt-1">Private Schools Content Creator</h3>
+                    <p class="muted text-sm">Private Schools &mdash; Remote</p>
+                    <ul>
+                        <li>Design and develop monthly tests, worksheets, and exam papers for classes KG to 7 across all subjects.</li>
+                        <li>Create detailed syllabus, book lists, and vacation homework booklets aligned with curriculum standards.</li>
+                        <li>Prepare professional result reports and progress sheets with accurate academic summaries.</li>
+                        <li>Recreate and digitize educational materials from image-based sources into polished Word/PDF documents.</li>
+                        <li>Maintain organized digital records of all academic content for easy access and reuse.</li>
+                    </ul>
+                </article>
+
+                <article class="timeline-item glass rounded-2xl p-6 reveal">
+                    <span class="timeline-dot"></span>
+                    <span class="text-violet-300 text-sm font-semibold">Apr 2022 - Nov 2023</span>
+                    <h3 class="text-xl font-bold mt-1">Account Assistant</h3>
+                    <p class="muted text-sm">Lucky Textile Mills Limited &mdash; Karachi</p>
+                    <ul>
+                        <li>Recorded daily inventory and shipment data into company systems with high accuracy and strong attention to detail.</li>
+                        <li>Conducted thorough accuracy checks on consumption reports and wastage calculations.</li>
+                        <li>Managed strict deadlines for document preparation, audit file organization, and regulatory reporting.</li>
+                        <li>Maintained organized, audit-ready records and resolved data mismatches through systematic verification.</li>
+                    </ul>
+                </article>
+
+                <article class="timeline-item glass rounded-2xl p-6 reveal">
+                    <span class="timeline-dot"></span>
+                    <span class="text-violet-300 text-sm font-semibold">Dec 2011 - Apr 2012</span>
+                    <h3 class="text-xl font-bold mt-1">Computer Instructor</h3>
+                    <p class="muted text-sm">Vocational Training Center (G), Sindh TEVTA &mdash; Karachi</p>
+                    <ul>
+                        <li>Entered and maintained student attendance, grades, and course completion records with high accuracy.</li>
+                        <li>Prepared monthly progress reports under tight deadlines for vocational training authorities.</li>
+                    </ul>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-20 px-4" style="background:var(--bg-soft)">
+        <div class="max-w-4xl mx-auto">
+            <span class="eyebrow">Expertise</span>
+            <h2 class="section-title">Skills &amp; Expertise</h2>
+
+            <div class="mt-10 mb-12 reveal">
+                <h3 class="text-lg font-semibold text-violet-200 mb-4 text-center">Educational Content</h3>
+                <ul class="flex flex-wrap gap-3 justify-center list-none">
+                    <li class="skill-tag">Content Creation</li>
+                    <li class="skill-tag">Educational Content</li>
+                    <li class="skill-tag">Curriculum Design</li>
+                    <li class="skill-tag">Report Preparation</li>
+                    <li class="skill-tag">MS Word</li>
+                    <li class="skill-tag">MS Excel (Advanced)</li>
+                    <li class="skill-tag">Google Sheets</li>
+                    <li class="skill-tag">Data Validation</li>
+                    <li class="skill-tag">Document Formatting</li>
+                    <li class="skill-tag">Record Management</li>
+                    <li class="skill-tag">Typing (Fast)</li>
+                </ul>
+            </div>
+
+            <div class="reveal">
+                <h3 class="text-lg font-semibold text-indigo-200 mb-2 text-center">Learning &amp; Upskilling</h3>
+                <p class="muted text-sm text-center mb-4">Building technical skills to deliver faster, AI-assisted school content.</p>
+                <ul class="flex flex-wrap gap-3 justify-center list-none">
+                    <li class="skill-tag">HTML</li>
+                    <li class="skill-tag">CSS</li>
+                    <li class="skill-tag">JavaScript</li>
+                    <li class="skill-tag">TypeScript</li>
+                    <li class="skill-tag">Tailwind CSS</li>
+                    <li class="skill-tag">Node.js</li>
+                    <li class="skill-tag">Next.js</li>
+                    <li class="skill-tag">Claude Code</li>
+                    <li class="skill-tag">OpenAI SDK</li>
+                    <li class="skill-tag">Python</li>
+                    <li class="skill-tag">Agentic AI</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-4 gradient-bg">
+        <div class="max-w-2xl mx-auto text-center">
+            <span class="eyebrow">Contact</span>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-sub !mb-8">Have a project or content need? Let's connect! Email par message karna sab se aasan hai.</p>
+            <div class="grid gap-3 text-left">
+                <a class="contact-card glass" href="mailto:arshmanedu123@gmail.com?subject=Content%20Quote%20Request&amp;body=Assalam-o-Alaikum%2C%20mujhe%20school%20ke%20liye%20content%2Fquote%20chahiye.%20Services%20ki%20maloomat%20bhej%20dein.">
+                    <span class="ico" aria-hidden="true">&#9993;</span>
+                    <span><span class="block font-semibold">Email</span><span class="block muted text-sm break-all">arshmanedu123@gmail.com</span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-white/10" style="background:var(--bg)">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+            <p>&copy; 2026 NK. All rights reserved.</p>
+            <nav aria-label="Footer" class="flex gap-5">
+                <a href="#services" class="hover:text-white transition">Services</a>
+                <a href="#projects" class="hover:text-white transition">Projects</a>
+                <a href="#contact" class="hover:text-white transition">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Email Float -->
+    <a href="#contact" class="email-float" aria-label="Email me">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+    </a>
+
+    <!-- Image preview modal -->
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Preview" hidden>
+        <div class="modal-inner">
+            <button type="button" class="modal-btn modal-close" id="modalClose" aria-label="Close preview">&times;</button>
+            <button type="button" class="modal-btn modal-prev" id="modalPrev" aria-label="Previous">&#8249;</button>
+            <img id="modalImg" class="modal-img" src="" alt="">
+            <button type="button" class="modal-btn modal-next" id="modalNext" aria-label="Next">&#8250;</button>
+            <div class="modal-foot">
+                <span id="modalCaption" class="font-medium"></span>
+                <span id="modalCount" class="text-violet-300 text-sm"></span>
+                <a id="modalPdf" class="btn btn-primary !py-1.5 !px-4 !text-sm" href="#" target="_blank" rel="noopener" hidden>Open full PDF &#8599;</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        'use strict';
+
+        /* ---------------------------------------------------------------
+           PORTFOLIO DATA
+           Nayi image/PDF add karne ke liye sirf yahan ek line add karein.
+           feat: true  => "All" tab mein dikhegi
+           pdf: '...'  => preview ke andar "Open full PDF" button aayega
+        ---------------------------------------------------------------- */
+        const CATEGORIES = [
+            {
+                id: 'vacation', label: 'Vacation Homework',
+                desc: 'Comprehensive vacation homework booklets designed for students to stay engaged during breaks.',
+                groups: [
+                    { title: 'Grade 6', items: [
+                        { src: 'Grade_6.webp', title: 'Vacation Homework — Grade 6', feat: true }
+                    ]},
+                    { title: 'Grade 7', items: [
+                        { src: 'Grade_7.webp', title: 'Vacation Homework — Grade 7', feat: true }
+                    ]}
+                ]
+            },
+            {
+                id: 'syllabus', label: 'Syllabus',
+                desc: 'Mid-term syllabus for Class 1 covering all major subjects.',
+                groups: [
+                    { title: 'Class 1 — Mid Term Syllabus', items: [
+                        { src: 'syllabus_class1.webp', title: 'Syllabus Overview — All Subjects', feat: true },
+                        { src: 'syllabus-class-1.webp', title: 'Syllabus Class 1 — Detailed Page', feat: true },
+                        { src: 'islamiat-1.webp', title: 'Islamiat — Page 1', feat: true },
+                        { src: 'islamiat-2.webp', title: 'Islamiat — Page 2' }
+                    ]}
+                ],
+                extra: 'syllabus'
+            },
+            {
+                id: 'monthlytest', label: 'Monthly Tests',
+                desc: 'Monthly tests for Science and Social Studies.',
+                groups: [
+                    { title: '', items: [
+                        { src: 'Monthly_test_sci.webp', title: 'Science — Class 2', feat: true },
+                        { src: 'monthly_test_sst.webp', title: 'SST — Monthly Test', feat: true }
+                    ]}
+                ]
+            },
+            {
+                id: 'paper', label: 'Papers',
+                desc: 'Mid Term Examination papers for Class 1 across English, Math & Urdu.',
+                groups: [
+                    { title: 'English Paper 2', items: [1,2,3,4].map(n => ({ src: 'eng-pp2-' + n + '.webp', title: 'English Paper 2 — Page ' + n, feat: n === 1 })) },
+                    { title: 'Math Paper 1',    items: [1,2,3].map(n => ({ src: 'math-pp1-' + n + '.webp', title: 'Math Paper 1 — Page ' + n, feat: n === 1 })) },
+                    { title: 'Math Paper 2',    items: [1,2,3,4].map(n => ({ src: 'math-pp2-' + n + '.webp', title: 'Math Paper 2 — Page ' + n })) },
+                    { title: 'Urdu KG1',        items: [1,2].map(n => ({ src: 'urdu-kg1-' + n + '.webp', title: 'Urdu KG1 — Page ' + n })) },
+                    { title: 'Urdu KG2',        items: [1,2,3,4].map(n => ({ src: 'urdu-kg2-' + n + '.webp', title: 'Urdu KG2 — Page ' + n, feat: n === 1 })) }
+                ]
+            },
+            {
+                id: 'result', label: 'Results',
+                desc: 'Monthly test result report.',
+                groups: [
+                    { title: '', items: [ { src: 'result.webp', title: 'Monthly Test Result', feat: true } ] }
+                ]
+            },
+            {
+                id: 'preprimary', label: 'Pre-Primary',
+                desc: 'Fun learning activities and worksheets for pre-primary kids.',
+                groups: [
+                    { title: '', items: [
+                        { src: 'pre1.webp', title: 'Activity 1 — Match the Number', feat: true },
+                        { src: 'pre2.webp', title: 'Activity 2 — Missing Number', feat: true },
+                        { src: 'pre3.webp', title: 'Activity 3 — Missing Alphabet', feat: true }
+                    ]}
+                ]
+            },
+            {
+                id: 'socialmedia', label: 'Social Media', type: 'posts',
+                desc: 'Creative posts designed for school social media pages.',
+                posts: [
+                    { src: 'summer-vacation.webp', title: 'Summer Vacation — Social Media Post', meta: 'Announcement · Summer 2026',
+                      caption: '☀️ Summer Vacations Announced! Wishing all our students a safe and happy holiday. 🌞' },
+                    { src: 'reopen-school.webp', title: 'School Reopening — Social Media Post', meta: 'Announcement · School Reopening',
+                      caption: '🏫 School Reopening! Welcome back, dear students. Let\'s begin the new session with fresh energy and big goals. 📚' }
+                ]
+            }
+        ];
+
+        const SYLLABUS = [
+            ['Mathematics', ['Tables 2 to 8', 'Counting (1-500), Words (1-50)', 'Backward Counting (100-1)', 'Addition & Subtraction', 'Multiplication, Shapes, Money']],
+            ['English', ['Alphabetical Order', 'Nouns, Verbs, Adjectives', 'Articles, Singular/Plural', 'Opposites, Comprehension', 'Picture Composition']],
+            ['Urdu', ['Haroof ki pehchan', 'Jor tor, Lafz banao', 'Jumlay likhna', 'Mazmoon nigari']],
+            ['Science', ['Living & Non-Living Things', 'Parts of a Plant', 'Animals, Food, Our Body', 'Sense Organs']],
+            ['Social Studies', ['My Family, My School', 'Pakistan & its Provinces', 'Important Places', 'Our Helpers']],
+            ['Islamiat', ['Surah Al-Fatiha with meaning', 'Five Pillars of Islam', 'Kalima Tayyaba, Wazu', 'Duas (before eating, sleeping)']]
+        ];
+
+        const HERO_SLIDES = [
+            { src: 'eng-pp2-1.webp', title: 'English Paper 2 — Page 1' },
+            { src: 'eng-pp2-2.webp', title: 'English Paper 2 — Page 2' },
+            { src: 'eng-pp2-3.webp', title: 'English Paper 2 — Page 3' },
+            { src: 'eng-pp2-4.webp', title: 'English Paper 2 — Page 4' },
+            { src: 'math-pp2-1.webp', title: 'Math Paper 2 — Page 1' },
+            { src: 'math-pp2-2.webp', title: 'Math Paper 2 — Page 2' },
+            { src: 'math-pp2-3.webp', title: 'Math Paper 2 — Page 3' },
+            { src: 'math-pp2-4.webp', title: 'Math Paper 2 — Page 4' },
+            { src: 'urdu-kg2-1.webp', title: 'Urdu KG2 — Page 1' },
+            { src: 'urdu-kg2-2.webp', title: 'Urdu KG2 — Page 2' },
+            { src: 'urdu-kg2-3.webp', title: 'Urdu KG2 — Page 3' },
+            { src: 'urdu-kg2-4.webp', title: 'Urdu KG2 — Page 4' },
+            { src: 'islamiat-1.webp', title: 'Islamiat — Page 1' },
+            { src: 'islamiat-2.webp', title: 'Islamiat — Page 2' }
+        ];
+
+        const $ = (sel, root) => (root || document).querySelector(sel);
+        const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function esc(s) {
+            return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+
+        /* ---------------- Mobile menu ---------------- */
+        const menuBtn = $('#menuBtn');
+        const mobileMenu = $('#mobileMenu');
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            menuBtn.setAttribute('aria-expanded', String(open));
+            menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            menuBtn.innerHTML = open ? '&times;' : '&#9776;';
+        }
+        menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+        $$('#mobileMenu a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+        /* ---------------- Active nav link on scroll ---------------- */
+        const navLinks = $$('.nav-link');
+        const sectionIds = ['about', 'services', 'pricing', 'projects', 'experience', 'skills', 'contact'];
+        const spy = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+                }
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        sectionIds.forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+
+        /* ---------------- Reveal on scroll ---------------- */
+        let revealObs = null;
+        if ('IntersectionObserver' in window) {
+            revealObs = new IntersectionObserver((entries, o) => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); } });
+            }, { threshold: 0.08 });
+        }
+        function observeReveal(root) {
+            $$('.reveal:not(.in)', root).forEach(el => revealObs ? revealObs.observe(el) : el.classList.add('in'));
+        }
+        observeReveal(document);
+
+        /* ---------------- Modal (gallery preview) ---------------- */
+        const modal = $('#imageModal');
+        const modalImg = $('#modalImg');
+        const modalCaption = $('#modalCaption');
+        const modalCount = $('#modalCount');
+        const modalPdf = $('#modalPdf');
+        const modalPrev = $('#modalPrev');
+        const modalNext = $('#modalNext');
+        const modalClose = $('#modalClose');
+        let modalList = [];
+        let modalIndex = 0;
+        let lastFocus = null;
+
+        function showModalItem() {
+            const item = modalList[modalIndex];
+            if (!item) return;
+            modalImg.src = item.src;
+            modalImg.alt = item.title;
+            modalCaption.textContent = item.title;
+            modalCount.textContent = modalList.length > 1 ? (modalIndex + 1) + ' / ' + modalList.length : '';
+            if (item.pdf) { modalPdf.href = item.pdf; modalPdf.hidden = false; } else { modalPdf.hidden = true; }
+            const multi = modalList.length > 1;
+            modalPrev.hidden = !multi;
+            modalNext.hidden = !multi;
+        }
+        function openModal(list, index) {
+            modalList = list;
+            modalIndex = index;
+            lastFocus = document.activeElement;
+            showModalItem();
+            modal.hidden = false;
+            document.body.style.overflow = 'hidden';
+            modalClose.focus();
+        }
+        function closeModal() {
+            if (modal.hidden) return;
+            modal.hidden = true;
+            modalImg.removeAttribute('src');
+            document.body.style.overflow = '';
+            if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+        function stepModal(d) {
+            if (modalList.length < 2) return;
+            modalIndex = (modalIndex + d + modalList.length) % modalList.length;
+            showModalItem();
+        }
+        modalClose.addEventListener('click', closeModal);
+        modalPrev.addEventListener('click', () => stepModal(-1));
+        modalNext.addEventListener('click', () => stepModal(1));
+        modal.addEventListener('click', e => { if (e.target === modal || e.target.classList.contains('modal-inner')) closeModal(); });
+        document.addEventListener('keydown', e => {
+            if (modal.hidden) { if (e.key === 'Escape') setMenu(false); return; }
+            if (e.key === 'Escape') closeModal();
+            else if (e.key === 'ArrowLeft') stepModal(-1);
+            else if (e.key === 'ArrowRight') stepModal(1);
+            else if (e.key === 'Tab') {
+                const f = [modalClose, modalPrev, modalNext, modalPdf].filter(el => el && !el.hidden);
+                const i = f.indexOf(document.activeElement);
+                e.preventDefault();
+                f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+            }
+        });
+        let touchX = null;
+        modal.addEventListener('touchstart', e => { touchX = e.changedTouches[0].clientX; }, { passive: true });
+        modal.addEventListener('touchend', e => {
+            if (touchX === null) return;
+            const dx = e.changedTouches[0].clientX - touchX;
+            if (Math.abs(dx) > 50) stepModal(dx < 0 ? 1 : -1);
+            touchX = null;
+        }, { passive: true });
+
+        /* ---------------- Projects ---------------- */
+        const tabsEl = $('#projectTabs');
+        const panel = $('#projectPanel');
+        let viewList = [];
+
+        function countItems(cat) {
+            return cat.type === 'posts' ? cat.posts.length : cat.groups.reduce((n, g) => n + g.items.length, 0);
+        }
+        function reg(item) { viewList.push(item); return viewList.length - 1; }
+
+        function cardHTML(item) {
+            const i = reg(item);
+            return '<button type="button" class="proj-card glass reveal" data-i="' + i + '" aria-label="View ' + esc(item.title) + '">' +
+                '<span class="thumb"><img src="' + esc(item.src) + '" alt="' + esc(item.title) + '" loading="lazy" decoding="async">' +
+                (item.pdf ? '<span class="badge">PDF</span>' : '') + '</span>' +
+                '<span class="cap">' + esc(item.title) + '</span></button>';
+        }
+        function postHTML(p) {
+            const i = reg({ src: p.src, title: p.title });
+            return '<article class="post glass reveal">' +
+                '<div class="flex items-center gap-3 p-4">' +
+                    '<img src="logo.webp" alt="" class="w-10 h-10 rounded-full object-cover border border-violet-400/40 bg-white/5">' +
+                    '<div><p class="text-sm font-semibold flex items-center gap-2">ABC School <span class="sample-tag">Sample</span></p>' +
+                    '<p class="text-xs muted">' + esc(p.meta) + '</p></div></div>' +
+                '<button type="button" class="post-img" data-i="' + i + '" aria-label="View ' + esc(p.title) + '"><img src="' + esc(p.src) + '" alt="' + esc(p.title) + '" loading="lazy" decoding="async"></button>' +
+                '<p class="p-4 text-sm text-gray-300"><span class="font-semibold text-white">abc_school</span> ' + esc(p.caption) + '</p>' +
+            '</article>';
+        }
+        function syllabusHTML() {
+            return '<div class="glass rounded-2xl p-6 mt-8"><div class="syl-grid">' +
+                SYLLABUS.map(s => '<div><h5>' + esc(s[0]) + '</h5><ul>' + s[1].map(t => '<li>' + esc(t) + '</li>').join('') + '</ul></div>').join('') +
+                '</div></div>';
+        }
+
+        function renderTabs(active) {
+            const all = [{ id: 'all', label: 'All' }].concat(CATEGORIES);
+            tabsEl.innerHTML = all.map(c =>
+                '<button type="button" role="tab" class="tab-btn" id="tab-' + c.id + '" data-tab="' + c.id + '" aria-selected="' + (c.id === active) + '" aria-controls="projectPanel" tabindex="' + (c.id === active ? 0 : -1) + '">' +
+                esc(c.label) + (c.id === 'all' ? '' : '<span class="n">' + countItems(c) + '</span>') + '</button>'
+            ).join('');
+        }
+
+        function renderView(tab) {
+            viewList = [];
+            let html = '';
+            if (tab === 'all') {
+                html = '<div class="space-y-14">' + CATEGORIES.map(cat => {
+                    const head = '<div class="cat-head"><div><h3>' + esc(cat.label) + '</h3><p class="muted text-sm mt-1">' + esc(cat.desc) + '</p></div>' +
+                        '<button type="button" class="link-btn" data-go="' + cat.id + '">View all &rarr;</button></div>';
+                    let body;
+                    if (cat.type === 'posts') {
+                        body = '<div class="grid grid-cols-1 md:grid-cols-2 gap-6">' + cat.posts.map(postHTML).join('') + '</div>';
+                    } else {
+                        const feats = [];
+                        cat.groups.forEach(g => g.items.forEach(it => { if (it.feat) feats.push(it); }));
+                        body = '<div class="proj-grid">' + feats.map(cardHTML).join('') + '</div>';
+                    }
+                    return '<div>' + head + body + '</div>';
+                }).join('') + '</div>';
+            } else {
+                const cat = CATEGORIES.find(c => c.id === tab);
+                html = '<div class="cat-head"><div><h3>' + esc(cat.label) + '</h3><p class="muted text-sm mt-1">' + esc(cat.desc) + '</p></div></div>';
+                if (cat.type === 'posts') {
+                    html += '<div class="grid grid-cols-1 md:grid-cols-2 gap-6">' + cat.posts.map(postHTML).join('') + '</div>';
+                } else {
+                    cat.groups.forEach(g => {
+                        if (g.title) html += '<h4 class="group-title">' + esc(g.title) + '</h4>';
+                        html += '<div class="proj-grid">' + g.items.map(cardHTML).join('') + '</div>';
+                    });
+                    if (cat.extra === 'syllabus') html += syllabusHTML();
+                }
+            }
+            panel.innerHTML = html;
+            panel.setAttribute('aria-labelledby', 'tab-' + tab);
+            observeReveal(panel);
+        }
+
+        function switchTab(tab, focusTab) {
+            renderTabs(tab);
+            renderView(tab);
+            if (focusTab) { const t = $('#tab-' + tab); if (t) t.focus(); }
+        }
+
+        tabsEl.addEventListener('click', e => {
+            const b = e.target.closest('[data-tab]');
+            if (b) switchTab(b.dataset.tab);
+        });
+        tabsEl.addEventListener('keydown', e => {
+            if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+            const tabs = $$('[data-tab]', tabsEl);
+            const i = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
+            const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
+            switchTab(n.dataset.tab, true);
+            e.preventDefault();
+        });
+        panel.addEventListener('click', e => {
+            const go = e.target.closest('[data-go]');
+            if (go) { switchTab(go.dataset.go); $('#projects').scrollIntoView(); return; }
+            const c = e.target.closest('[data-i]');
+            if (c) openModal(viewList, Number(c.dataset.i));
+        });
+
+        switchTab('all');
+
+        /* ---------------- Hero slider ---------------- */
+        const slidesEl = $('#heroSlides');
+        const countEl = $('#heroCount');
+        const slider = $('#heroSlider');
+        let cur = 0;
+        let timer = null;
+
+        HERO_SLIDES.forEach((s, i) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'hero-slide' + (i === 0 ? ' active' : '');
+            b.setAttribute('aria-label', 'View ' + s.title);
+            b.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
+            b.tabIndex = i === 0 ? 0 : -1;
+            b.innerHTML = '<img src="' + esc(s.src) + '" alt="' + esc(s.title) + '"' + (i === 0 ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">' +
+                '<p class="hero-caption">' + esc(s.title) + '</p>';
+            b.addEventListener('click', () => openModal(HERO_SLIDES, i));
+            slidesEl.appendChild(b);
+        });
+        const slideEls = $$('.hero-slide', slidesEl);
+
+        function go(i) {
+            cur = (i + HERO_SLIDES.length) % HERO_SLIDES.length;
+            slideEls.forEach((el, k) => {
+                const on = k === cur;
+                el.classList.toggle('active', on);
+                el.setAttribute('aria-hidden', on ? 'false' : 'true');
+                el.tabIndex = on ? 0 : -1;
+            });
+            countEl.textContent = String(cur + 1).padStart(2, '0') + ' / ' + String(HERO_SLIDES.length).padStart(2, '0');
+        }
+        function stop() { clearInterval(timer); timer = null; }
+        function start() {
+            stop();
+            if (reduceMotion || document.hidden) return;
+            timer = setInterval(() => go(cur + 1), 4000);
+        }
+        $('#heroPrev').addEventListener('click', () => { go(cur - 1); start(); });
+        $('#heroNext').addEventListener('click', () => { go(cur + 1); start(); });
+        slider.addEventListener('mouseenter', stop);
+        slider.addEventListener('mouseleave', start);
+        slider.addEventListener('focusin', stop);
+        slider.addEventListener('focusout', start);
+        document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+        go(0);
+        start();
+    })();
+    </script>
+
+</body>
+</html>
